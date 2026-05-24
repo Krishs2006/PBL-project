@@ -419,6 +419,440 @@ font-size:24px;
 SAGE Campus Event Hub
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SAGE Campus Event Hub</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f3f6ff;
+color:#222;
+transition:0.4s;
+overflow-x:hidden;
+}
+
+body.dark{
+background:#111827;
+color:white;
+}
+
+header{
+background:linear-gradient(135deg,#001f7a,#2563eb);
+padding:18px 30px;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.header-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.logo{
+font-size:32px;
+font-weight:bold;
+color:white;
+}
+
+nav{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#ffd700;
+}
+
+.toggle-btn{
+background:black;
+color:white;
+border:none;
+padding:10px 16px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1fr 400px;
+gap:40px;
+align-items:center;
+padding:60px 7%;
+background:
+linear-gradient(rgba(255,255,255,0.85),
+rgba(255,255,255,0.85)),
+url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1600');
+background-size:cover;
+background-position:center;
+}
+
+body.dark .hero{
+background:
+linear-gradient(rgba(17,24,39,0.88),
+rgba(17,24,39,0.88)),
+url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1600');
+background-size:cover;
+background-position:center;
+}
+
+.hero-left h1{
+font-size:72px;
+line-height:1.1;
+color:#001f7a;
+margin-bottom:20px;
+}
+
+body.dark .hero-left h1{
+color:#60a5fa;
+}
+
+.hero-left p{
+font-size:22px;
+line-height:1.7;
+margin-bottom:30px;
+max-width:700px;
+}
+
+.btn{
+background:#2563eb;
+color:white;
+padding:14px 26px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#1d4ed8;
+transform:translateY(-3px);
+}
+
+.login-wrapper{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+.login-card{
+background:white;
+padding:28px;
+border-radius:18px;
+box-shadow:0 5px 18px rgba(0,0,0,0.1);
+}
+
+body.dark .login-card{
+background:#1f2937;
+}
+
+.login-card h2{
+margin-bottom:18px;
+color:#001f7a;
+}
+
+body.dark .login-card h2{
+color:#60a5fa;
+}
+
+input,textarea{
+width:100%;
+padding:14px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:15px;
+}
+
+textarea{
+resize:none;
+height:120px;
+}
+
+.password-box{
+position:relative;
+}
+
+.show-btn{
+position:absolute;
+right:15px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:18px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:40px 7%;
+}
+
+.stat-card{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+display:flex;
+align-items:center;
+gap:20px;
+transition:0.3s;
+}
+
+body.dark .stat-card{
+background:#1f2937;
+}
+
+.stat-card:hover{
+transform:translateY(-6px);
+}
+
+.stat-card i{
+font-size:34px;
+color:#2563eb;
+}
+
+.stat-card h3{
+font-size:34px;
+}
+
+#welcomeBox{
+display:none;
+margin:0 7%;
+background:white;
+padding:20px;
+border-radius:16px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+font-size:20px;
+font-weight:bold;
+margin-bottom:25px;
+}
+
+body.dark #welcomeBox{
+background:#1f2937;
+}
+
+.section{
+padding:20px 7% 70px;
+}
+
+.section-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.section-title h2{
+font-size:44px;
+color:#001f7a;
+}
+
+body.dark .section-title h2{
+color:#60a5fa;
+}
+
+.search-box{
+padding:12px;
+width:300px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+.event-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+position:relative;
+}
+
+body.dark .card{
+background:#1f2937;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:170px;
+object-fit:cover;
+}
+
+.card-content{
+padding:22px;
+}
+
+.badge{
+position:absolute;
+top:15px;
+left:15px;
+background:#7c3aed;
+color:white;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.department{
+display:inline-block;
+background:#dbeafe;
+color:#001f7a;
+padding:5px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+margin-bottom:12px;
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:12px;
+color:#001f7a;
+}
+
+body.dark .card h3{
+color:#60a5fa;
+}
+
+.card p{
+margin-bottom:10px;
+line-height:1.6;
+}
+
+.card-buttons{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+#adminPanel{
+display:none;
+}
+
+.admin-box{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+body.dark .admin-box{
+background:#1f2937;
+}
+
+footer{
+background:#001f7a;
+color:white;
+text-align:center;
+padding:25px;
+font-size:18px;
+}
+
+.toast{
+position:fixed;
+top:20px;
+right:20px;
+background:#16a34a;
+color:white;
+padding:15px 20px;
+border-radius:10px;
+display:none;
+z-index:3000;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+@media(max-width:1000px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.hero-left h1{
+font-size:52px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-left h1{
+font-size:42px;
+}
+
+.section-title h2{
+font-size:34px;
+}
+
+.logo{
+font-size:24px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="toast" id="toast"></div>
+
+<header>
+
+<div class="header-container">
+
+<div class="logo">
+SAGE Campus Event Hub
+</div>
+
 <nav>
 <a href="#">Home</a>
 <a href="#events">Events</a>
@@ -482,9 +916,16 @@ Login as Student
 id="adminUsername"
 placeholder="Username">
 
+<div class="password-box">
+
 <input type="password"
 id="adminPassword"
 placeholder="Password">
+
+<span onclick="togglePassword()"
+class="show-btn">👁️</span>
+
+</div>
 
 <button class="btn"
 style="background:#16a34a;"
@@ -529,8 +970,8 @@ Login as Admin
 <div class="stat-card">
 <i class="fa-solid fa-bullhorn"></i>
 <div>
-<h3>5</h3>
-<p>Upcoming This Month</p>
+<h3>8</h3>
+<p>Upcoming Events</p>
 </div>
 </div>
 
@@ -551,6 +992,443 @@ placeholder="Search events or departments...">
 </div>
 
 <div class="event-grid"
+id="eventList"></div>
+
+</section>
+
+<section class="section"
+id="adminPanel">
+
+<div class="section-title">
+
+<h2>Admin Event Management Panel</h2>
+
+</div>
+
+<div class="admin-box">
+
+<input type="text"
+id="eventName"
+placeholder="Event Name">
+
+<input type="date"
+id="eventDate">
+
+<input type="text"
+id="eventVenue"
+placeholder="Venue">
+
+<input type="text"
+id="eventDepartment"
+placeholder="Department / Open To All">
+
+<input type="text"
+id="eventCategory"
+placeholder="Category">
+
+<textarea
+id="eventDesc"
+placeholder="Description"></textarea>
+
+<button class="btn"
+onclick="addEvent()">
+Add Event
+</button>
+
+<button class="btn"
+style="background:red;margin-top:10px;"
+onclick="logoutAdmin()">
+Logout Admin
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 SAGE Campus Event Hub. All Rights Reserved.
+
+</footer>
+
+<script>
+
+let loggedInStudent = false;
+
+let registrations =
+JSON.parse(localStorage.getItem("registrations")) || 23;
+
+let events =
+JSON.parse(localStorage.getItem("events")) || [
+
+{
+name:"SAGE Hackathon 2026",
+date:"15 June 2026",
+venue:"Innovation Center",
+department:"Engineering",
+desc:"24-hour coding competition for engineering students.",
+category:"Competition",
+image:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200"
+},
+
+{
+name:"AI & Machine Learning Workshop",
+date:"22 June 2026",
+venue:"AI Research Lab",
+department:"Engineering",
+desc:"Hands-on workshop on Artificial Intelligence and Machine Learning.",
+category:"Workshop",
+image:"https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1200"
+},
+
+{
+name:"Startup Leadership Summit",
+date:"05 July 2026",
+venue:"Management Block",
+department:"Management",
+desc:"Business and entrepreneurship summit for future leaders.",
+category:"Seminar",
+image:"https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200"
+},
+
+{
+name:"Finance & Investment Bootcamp",
+date:"18 July 2026",
+venue:"Commerce Auditorium",
+department:"Management",
+desc:"Interactive session on finance and stock market basics.",
+category:"Bootcamp",
+image:"https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200"
+},
+
+{
+name:"Agri Tech Expo",
+date:"02 August 2026",
+venue:"Agriculture Block",
+department:"Agriculture",
+desc:"Exhibition of modern agricultural technologies.",
+category:"Expo",
+image:"https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200"
+},
+
+{
+name:"Pharma Research Workshop",
+date:"15 August 2026",
+venue:"Pharmacy Lab",
+department:"Pharmacy",
+desc:"Workshop on healthcare innovation and pharmaceutical research.",
+category:"Workshop",
+image:"https://images.unsplash.com/photo-1585435557343-3b092031a831?q=80&w=1200"
+},
+
+{
+name:"Annual Cultural Fest",
+date:"10 September 2026",
+venue:"Main Auditorium",
+department:"Open To All",
+desc:"University-wide cultural festival with music, dance and performances.",
+category:"Fest",
+image:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200"
+},
+
+{
+name:"Cyber Security Seminar",
+date:"28 September 2026",
+venue:"Seminar Hall A",
+department:"Engineering",
+desc:"Awareness and practical session on cyber security and ethical hacking.",
+category:"Seminar",
+image:"https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1200"
+}
+
+];
+
+function showToast(message){
+
+let toast =
+document.getElementById("toast");
+
+toast.innerText = message;
+
+toast.style.display = "block";
+
+setTimeout(() => {
+
+toast.style.display = "none";
+
+},2000);
+
+}
+
+function updateStats(){
+
+document.getElementById("eventCount")
+.innerText = events.length;
+
+document.getElementById("registrationCount")
+.innerText = registrations;
+
+}
+
+function createCard(event){
+
+return `
+
+<div class="card">
+
+<span class="badge">
+${event.category}
+</span>
+
+<img src="${event.image}">
+
+<div class="card-content">
+
+<div class="department">
+${event.department}
+</div>
+
+<h3>${event.name}</h3>
+
+<p>📅 ${event.date}</p>
+
+<p>📍 ${event.venue}</p>
+
+<p>${event.desc}</p>
+
+<div class="card-buttons">
+
+<button class="btn"
+onclick="registerEvent('${event.name}')">
+Register Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+function displayEvents(filteredEvents = events){
+
+let eventList =
+document.getElementById("eventList");
+
+eventList.innerHTML = "";
+
+filteredEvents.forEach((event)=>{
+
+eventList.innerHTML += createCard(event);
+
+});
+
+updateStats();
+
+}
+
+displayEvents();
+
+function studentLogin(){
+
+let name =
+document.getElementById("studentName").value;
+
+let department =
+document.getElementById("studentDepartment").value;
+
+if(name === "" || department === ""){
+
+showToast("Please fill all student details");
+
+return;
+
+}
+
+loggedInStudent = true;
+
+document.getElementById("welcomeBox")
+.style.display = "block";
+
+document.getElementById("welcomeBox")
+.innerHTML =
+"👋 Welcome, " + name +
+"! Department: " + department + " Student";
+
+showToast("Student Login Successful 🎉");
+
+scrollToEvents();
+
+}
+
+function adminLogin(){
+
+let username =
+document.getElementById("adminUsername").value;
+
+let password =
+document.getElementById("adminPassword").value;
+
+if(
+username === "sageadmin"
+&&
+password === "sage@2026"
+){
+
+document.getElementById("adminPanel")
+.style.display = "block";
+
+showToast("Admin Login Successful ✅");
+
+location.href="#adminPanel";
+
+}
+
+else{
+
+showToast("Invalid Admin Credentials ❌");
+
+}
+
+}
+
+function togglePassword(){
+
+let passwordField =
+document.getElementById("adminPassword");
+
+if(passwordField.type === "password"){
+
+passwordField.type = "text";
+
+}
+else{
+
+passwordField.type = "password";
+
+}
+
+}
+
+function logoutAdmin(){
+
+document.getElementById("adminPanel")
+.style.display = "none";
+
+showToast("Admin Logged Out");
+
+}
+
+function addEvent(){
+
+let newEvent = {
+
+name:
+document.getElementById("eventName").value,
+
+date:
+document.getElementById("eventDate").value,
+
+venue:
+document.getElementById("eventVenue").value,
+
+department:
+document.getElementById("eventDepartment").value,
+
+desc:
+document.getElementById("eventDesc").value,
+
+category:
+document.getElementById("eventCategory").value,
+
+image:
+"https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200"
+
+};
+
+events.push(newEvent);
+
+localStorage.setItem(
+"events",
+JSON.stringify(events)
+);
+
+displayEvents();
+
+showToast("Event Added Successfully ✅");
+
+}
+
+function registerEvent(eventName){
+
+if(loggedInStudent === false){
+
+showToast(
+"Please login as student first 👨‍🎓"
+);
+
+location.href = "#login";
+
+return;
+
+}
+
+registrations++;
+
+localStorage.setItem(
+"registrations",
+registrations
+);
+
+updateStats();
+
+showToast(
+"Successfully Registered for " +
+eventName + " 🎉"
+);
+
+}
+
+function scrollToEvents(){
+
+document.getElementById("events")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+document.getElementById("searchBox")
+.addEventListener("keyup",function(){
+
+let searchValue =
+this.value.toLowerCase();
+
+let filtered =
+events.filter(event =>
+event.name.toLowerCase().includes(searchValue)
+||
+event.department.toLowerCase().includes(searchValue)
+);
+
+displayEvents(filtered);
+
+});
+
+document.getElementById("darkModeBtn")
+.addEventListener("click",function(){
+
+document.body.classList.toggle("dark");
+
+});
+
+</script>
+
+</body>
+  </html>ss="event-grid"
 id="eventList"></div>
 
 </section>
