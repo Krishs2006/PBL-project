@@ -70,3 +70,9 @@ Frontend Based Mini Project / PBL Project
 # 👨‍💻 Developed By
 
 Krish Solanki
+
+---
+
+# 🌐 Live Demo
+
+https://krishs2006.github.io/PBL-project/college-event-management-system/
